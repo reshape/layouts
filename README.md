@@ -1,5 +1,10 @@
 # Reshape Layouts
 
+[![npm](https://img.shields.io/npm/v/reshape-layouts.svg?style=flat-square)](https://npmjs.com/package/reshape-layouts)
+[![tests](https://img.shields.io/travis/reshape/layouts.svg?style=flat-square)](https://travis-ci.org/reshape/layouts?branch=master)
+[![dependencies](https://img.shields.io/david/reshape/layouts.svg?style=flat-square)](https://david-dm.org/reshape/layouts)
+[![coverage](https://img.shields.io/coveralls/reshape/layouts.svg?style=flat-square)](https://coveralls.io/r/reshape/layouts?branch=master)
+
 Layout inheritance using `block` and `extend`, inspired by ([jade/pug](http://jade-lang.com/reference/inheritance/)).
 
 ### Installation

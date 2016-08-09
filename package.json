@@ -1,0 +1,36 @@
+{
+  "name": "reshape-layouts",
+  "description": "Layouts using extend/block for reshape",
+  "version": "0.0.0",
+  "author": "Jeff Escalante",
+  "ava": {
+    "verbose": "true"
+  },
+  "bugs": "https://github.com/reshape/layouts/issues",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "coveralls": "^2.11.12",
+    "nyc": "^7.1.0",
+    "proxyquire": "^1.7.10",
+    "reshape": "reshape/reshape",
+    "snazzy": "^4.0.0",
+    "standard": "^7.1.2"
+  },
+  "homepage": "https://github.com/reshape/layouts",
+  "keywords": [
+    "extend",
+    "html",
+    "jade",
+    "reshape-plugin",
+    "template"
+  ],
+  "license": "MIT",
+  "main": "lib",
+  "repository": "http://github.com/reshape/layouts",
+  "scripts": {
+    "lint": "standard | snazzy",
+    "test": "npm run lint && ava",
+    "coverage": "nyc ava && nyc report --reporter=html",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  }
+}

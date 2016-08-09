@@ -85,7 +85,7 @@ const html = '<extends src="base.html">' +
                '<block name="title" type="prepend">How to use reshape-layouts</block>' +
                '<block name="content">Read the documentation</block>' +
                '<block name="footer" type="append">— 2016</block>'
-           '</extends>';
+           '</extends>'
 
 reshape({ plugins: layouts() })
   .process(html)

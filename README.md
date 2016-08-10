@@ -72,7 +72,6 @@ The final HTML will be:
 </html>
 ```
 
-
 #### Append & Prepend
 
 It's also possible to append and prepend block's content

@@ -31,6 +31,25 @@ test('resolves correctly with reshape filename option', (t) => {
     })
 })
 
+test.cb('addDependencyTo option', (t) => {
+  const p = path.join(fixtures, 'basic.html')
+  const html = fs.readFileSync(p, 'utf8')
+  const ctx = {
+    addDependency: (dep) => {
+      t.truthy(dep.match(/\/test\/fixtures\/layout\.html/))
+      t.end()
+    }
+  }
+
+  reshape({
+    plugins: layouts({ addDependencyTo: ctx }),
+    filename: p
+  }).process(html)
+    .then((res) => {
+      t.truthy(cleanHtml(res.output()) === '<div class="container"><p>hello!</p></div>')
+    })
+})
+
 test('renders default block content if layout is not extended', (t) => {
   return init('<p><block name="content">content</block></p>')
     .then((html) => t.truthy(html === '<p>content</p>'))

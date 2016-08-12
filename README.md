@@ -105,6 +105,16 @@ The final HTML will be:
 </html>
 ```
 
+### Options
+
+All options are optional, none are required.
+
+| Name | Description | Default |
+| ---- | ----------- | ------- |
+| **root** | root to resolve layout paths from | reshape `filename` option |
+| **encoding** | encoding with which to read layout files | `utf8` |
+| **addDependencyTo** | pass webpack loader context to correctly specify dependencies in watch mode | |
+
 ### License & Contributing
 
 - Licensed under [MIT](LICENSE.txt)

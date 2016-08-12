@@ -1,7 +1,9 @@
 const path = require('path')
+const fs = require('fs')
 const reshape = require('reshape')
 const proxyquire = require('proxyquire')
 const test = require('ava')
+const layouts = require('..')
 
 let mfs = {
   _files: {},
@@ -15,14 +17,24 @@ let mfs = {
 }
 
 const extend = proxyquire('../lib/index', { fs: mfs })
+const fixtures = path.join(__dirname, 'fixtures')
 
 test.beforeEach(() => { mfs._files = {} })
+
+test('resolves correctly with reshape filename option', (t) => {
+  const p = path.join(fixtures, 'basic.html')
+  const html = fs.readFileSync(p, 'utf8')
+  return reshape({ plugins: layouts(), filename: p })
+    .process(html)
+    .then((res) => {
+      t.truthy(cleanHtml(res.output()) === '<div class="container"><p>hello!</p></div>')
+    })
+})
 
 test('renders default block content if layout is not extended', (t) => {
   return init('<p><block name="content">content</block></p>')
     .then((html) => t.truthy(html === '<p>content</p>'))
 })
-
 
 test('extends layout', (t) => {
   mfs.writeFileSync('./layout.html', `

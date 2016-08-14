@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2015 Kirill Maltsev <maltsevkirill@gmail.com>, Jeff Escalante
+Copyright (c) 2015 Kirill Maltsev, Jeff Escalante
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

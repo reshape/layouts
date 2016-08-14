@@ -81,7 +81,6 @@ test('extends layout', (t) => {
   })
 })
 
-
 test('extends inherited layout', (t) => {
   mfs.writeFileSync('./base.html', `
     <section>

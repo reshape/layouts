@@ -1,6 +1,6 @@
 {
   "name": "reshape-layouts",
-  "description": "Layouts using extend/block for reshape",
+  "description": "flexible layouts using 'extend' and 'block' tags",
   "version": "0.2.1",
   "author": "Jeff Escalante",
   "ava": {

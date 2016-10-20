@@ -19,7 +19,9 @@ Let's say we have a base template:
 ```html
 <html>
     <head>
-        <title><block name="title"> — Github</block></title>
+        <block name='title'>
+          <title>Default Title</title>
+        </block>
     </head>
 
     <body>
@@ -44,7 +46,7 @@ const reshape = require('reshape')
 const layouts = require('reshape-layouts')
 
 const html = '<extends src="base.html">' +
-               '<block name="title">How to use reshape-layouts</block>' +
+               '<block name="title"><title>How to use reshape-layouts</title></block>' +
                '<block name="content">Read the documentation</block>'
              '</extends>'
 

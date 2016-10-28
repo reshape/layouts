@@ -107,6 +107,10 @@ The final HTML will be:
 </html>
 ```
 
+### Caveats
+
+There are a number of tags that have their contents parsed as plaintext and cannot contain nested html tags. If you place a `block` tag inside any of these elements, it will not behave as expected, and instead will be rendered as plaintext. These are the tags that are content-only: `title`, `noscript`, `noframes`, `style`, `script`, `xmp`, `iframe`, `noembed`.
+
 ### Options
 
 All options are optional, none are required.

@@ -9,7 +9,7 @@
   },
   "bugs": "https://github.com/reshape/layouts/issues",
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.17.0",
     "coveralls": "^2.11.12",
     "nyc": "^9.0.1",
     "proxyquire": "^1.7.10",

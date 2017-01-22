@@ -1,5 +1,7 @@
 # Reshape Layouts
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/reshape/layouts.svg)](https://greenkeeper.io/)
+
 [![npm](https://img.shields.io/npm/v/reshape-layouts.svg?style=flat-square)](https://npmjs.com/package/reshape-layouts)
 [![tests](https://img.shields.io/travis/reshape/layouts.svg?style=flat-square)](https://travis-ci.org/reshape/layouts?branch=master)
 [![dependencies](https://img.shields.io/david/reshape/layouts.svg?style=flat-square)](https://david-dm.org/reshape/layouts)

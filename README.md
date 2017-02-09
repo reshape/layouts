@@ -119,7 +119,24 @@ All options are optional, none are required.
 | ---- | ----------- | ------- |
 | **root** | root to resolve layout paths from | reshape `filename` option |
 | **encoding** | encoding with which to read layout files | `utf8` |
-| **addDependencyTo** | pass webpack loader context to correctly specify dependencies in watch mode | |
+
+### Reporting Dependencies
+
+This plugin will report its dependencies in the standard format as dictated by [reshape-loader](https://github.com/reshape/loader) if you pass `dependencies: []` as an option to reshape when it runs. Dependencies will be available on the output object under the `dependencies` key. For example:
+
+```js
+const reshape = require('reshape')
+const include = require('reshape-layouts')
+
+reshape({ plugins: [layouts()], dependencies: []})
+  .process(someHtml)
+  .then((res) => {
+    console.log(res.dependencies)
+    console.log(res.output())
+  })
+```
+
+If you are using this with webpack, reshape-loader takes care of the dependency reporting and you don't have to do anything 😁
 
 ### License & Contributing
 

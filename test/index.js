@@ -31,21 +31,16 @@ test('resolves correctly with reshape filename option', (t) => {
     })
 })
 
-test.cb('addDependencyTo option', (t) => {
+test('reports dependencies correctly', (t) => {
   const p = path.join(fixtures, 'basic.html')
   const html = fs.readFileSync(p, 'utf8')
-  const ctx = {
-    addDependency: (dep) => {
-      t.truthy(dep.match(/\/test\/fixtures\/layout\.html/))
-      t.end()
-    }
-  }
 
-  reshape({
-    plugins: layouts({ addDependencyTo: ctx }),
-    filename: p
-  }).process(html)
+  return reshape({ plugins: layouts(), dependencies: [], filename: p })
+    .process(html)
     .then((res) => {
+      t.truthy(res.dependencies)
+      t.regex(res.dependencies[0].file, /layout\.html/)
+      t.regex(res.dependencies[0].parent, /basic\.html/)
       t.truthy(cleanHtml(res.output()) === '<div class="container"><p>hello!</p></div>')
     })
 })

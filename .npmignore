@@ -1,2 +1,5 @@
 .travis.yml
 test
+yarn.lock
+contributing.md
+.editorconfig

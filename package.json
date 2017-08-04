@@ -9,13 +9,13 @@
   },
   "bugs": "https://github.com/reshape/layouts/issues",
   "devDependencies": {
-    "ava": "^0.19.0",
-    "coveralls": "^2.11.12",
-    "nyc": "^10.0.0",
-    "proxyquire": "^1.7.10",
+    "ava": "^0.21.0",
+    "coveralls": "^2.13.1",
+    "nyc": "^11.1.0",
+    "proxyquire": "^1.8.0",
     "reshape": "^0.4.0",
-    "snazzy": "^6.0.0",
-    "standard": "^10.0.0"
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
   },
   "homepage": "https://github.com/reshape/layouts",
   "keywords": [

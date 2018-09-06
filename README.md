@@ -83,7 +83,7 @@ const reshape = require('reshape')
 const layouts = require('reshape-layouts')
 
 const html = '<extends src="base.html">' +
-               '<block name="title" type="prepend">How to use reshape-layouts</block>' +
+               '<block name="title" type="prepend"><meta name="description" content="test"></block>' +
                '<block name="content">Read the documentation</block>' +
                '<block name="footer" type="append">— 2016</block>'
            '</extends>'
@@ -98,7 +98,8 @@ The final HTML will be:
 ```html
 <html>
   <head>
-    <title>How to use reshape-layouts — Github</title>
+    <meta name="description" content="test">
+    <title>How to use reshape-layouts</title>
   </head>
   <body>
     <div class="content">Read the documentation</div>

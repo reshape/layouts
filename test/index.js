@@ -156,7 +156,7 @@ test('throws an error if <extends> has no "src"', (t) => {
 
 test('throws an error if <block> has no "name"', (t) => {
   mfs.writeFileSync('./test/base.html', 'some content')
-  const options = {root: './test'}
+  const options = { root: './test' }
 
   return Promise.all([
     assertError(t,

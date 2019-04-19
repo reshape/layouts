@@ -16,7 +16,7 @@ let mfs = {
   }
 }
 
-const extend = proxyquire('../lib/index', { fs: mfs })
+const extend = proxyquire('../lib/index', {fs: mfs})
 const fixtures = path.join(__dirname, 'fixtures')
 
 test.beforeEach(() => { mfs._files = {} })
@@ -24,7 +24,7 @@ test.beforeEach(() => { mfs._files = {} })
 test('resolves correctly with reshape filename option', (t) => {
   const p = path.join(fixtures, 'basic.html')
   const html = fs.readFileSync(p, 'utf8')
-  return reshape({ plugins: layouts(), filename: p })
+  return reshape({plugins: layouts(), filename: p})
     .process(html)
     .then((res) => {
       t.truthy(cleanHtml(res.output()) === '<div class="container"><p>hello!</p></div>')
@@ -35,7 +35,7 @@ test('reports dependencies correctly', (t) => {
   const p = path.join(fixtures, 'basic.html')
   const html = fs.readFileSync(p, 'utf8')
 
-  return reshape({ plugins: layouts(), dependencies: [], filename: p })
+  return reshape({plugins: layouts(), dependencies: [], filename: p})
     .process(html)
     .then((res) => {
       t.truthy(res.dependencies)
@@ -184,7 +184,7 @@ test('uses the correct source location for layouts and templates', (t) => {
 
   const html = '<extends src="layout.html"><block name="content">hello!</block></extends>'
 
-  return reshape({ plugins: [extend(), interceptLocation] })
+  return reshape({plugins: [extend(), interceptLocation]})
     .process(html)
 
   function interceptLocation (tree) {
@@ -194,6 +194,32 @@ test('uses the correct source location for layouts and templates', (t) => {
   }
 })
 
+testq('it recursively extends layout', (t) => {
+  const p = path.join(fixtures, 'nested_extend.html')
+  const html = fs.readFileSync(p, 'utf8')
+  mfs.writeFileSync('./layout.html', '<div><block name="content">templatecontent</block></div>')
+  mfs.writeFileSync('./card.html', '<div><block name="cardTitle">cardtemplatecontent</block></div>')
+
+  const extended = init(`<extends src='layout.html'>
+  <block name='content'>
+    <p>extended content</p>
+    <extends src="card.html">
+      <block name="cardTitle">
+        <p>extended card content</p>
+      </block>
+    </extends>
+  </block>
+</extends>
+`)
+    .then(extended => {
+
+
+    })
+
+  t.truthy(extended, html)
+
+})
+
 function assertError (t, promise, expectedErrorMessage) {
   return promise
     .catch((error) => error.message)
@@ -201,7 +227,7 @@ function assertError (t, promise, expectedErrorMessage) {
 }
 
 function init (html, options = {}) {
-  return reshape({ plugins: extend(options) })
+  return reshape({plugins: extend(options)})
     .process(html)
     .then((res) => cleanHtml(res.output()))
 }

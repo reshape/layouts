@@ -1,5 +1,5 @@
 {
-  "name": "@josephfinlayson/reshape-layouts",
+  "name": "reshape-layouts",
   "description": "flexible layouts using 'extend' and 'block' tags",
   "version": "1.0.0",
   "author": "Jeff Escalante",
@@ -31,6 +31,7 @@
   "scripts": {
     "coverage": "nyc ava && nyc report --reporter=html && open ./coverage/index.html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "test": "ava"
+    "pretest": "standard | snazzy",
+    "test": "nyc ava"
   }
 }

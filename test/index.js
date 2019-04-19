@@ -194,6 +194,27 @@ test('uses the correct source location for layouts and templates', (t) => {
   }
 })
 
+test('recursive layout extension', (t) => {
+  mfs.writeFileSync('./layout.html', '<div class="container"><block name="content"><p>default</p></block></div>')
+  mfs.writeFileSync('./component.html', '<div><p>this is a very interesting component</p><block name="content">this is default content</block></div>')
+
+  return init(`<extends src="layout.html">
+    <block name="content">
+        <p>blah</p>
+        <extends src="component.html">
+          <block name="content">
+            Hello!
+          </block>
+        </extends>
+    </block>
+  </extends>
+  `).then((html) => {
+    t.truthy((html) === cleanHtml(`<div class="container"><p>blah</p><div><p>this is a very interesting component</p>
+            Hello!
+          </div></div>`))
+  })
+})
+
 function assertError (t, promise, expectedErrorMessage) {
   return promise
     .catch((error) => error.message)
